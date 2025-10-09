@@ -4,6 +4,41 @@
     margin:0 auto;
 }
 
+/* main */
+#main-block {
+    margin-left : 30px;
+    margin-top : 40px;
+}
+
+.best-item-card {
+    height : 600px;
+    display : inline-block;
+    margin-right : 80px;
+    line-height : 75%;
+}
+.best-item-detail{
+    margin-top: 10px;
+    margin-left: 2px;
+}
+
+.best-item-image {
+    height : 400px;
+}
+
+.new-item-card {
+    height: 500px;
+    display: inline-block;
+    margin-right : 80px;
+    line-height: 75%;
+}
+.new-item-detail {
+    margin-top: 10px;
+    margin-left: 2px;
+}
+.new-item-image {
+    height: 300px;
+}
+
 
 .card {
  margin : 30px auto;
@@ -57,4 +92,17 @@ input {
 
 .footer {
     background-color : #b6aa8a;
+    height : 200px;
+}
+.footer-block {
+    margin-left : 15px;
+    margin-top : 15px;
+    width : 230px;
+    line-height : 75%;
+}
+.footer-block-company-info {
+    margin-left : 30px;
+    margin-top : 15px;
+    width : 700px;
+    line-height : 75%;
 }

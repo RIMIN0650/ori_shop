@@ -1,6 +1,5 @@
 #wrap {
-    width:1800px;
-    height:3000px;
+    width:1400px;
     margin:0 auto;
 }
 
@@ -39,6 +38,52 @@
     height: 300px;
 }
 
+/* item-detail-page */
+
+#item-detail-image-card {
+    width: 500px;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.item-detail-image {
+    width:270px;
+}
+
+#item-detail-card {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 80px;
+    width: 300px;
+}
+
+#item-info-box {
+    padding: 3px;
+    line-height : 75%;
+}
+
+#announce-box {
+    padding: 3px;
+    line-height : 75%;
+}
+
+#selection-info-card {
+    padding: 3px;
+
+}
+
+#total-cost-card {
+    padding: 3px;
+    line-height: 75%;
+}
+
+#total-fee-announcement-card {
+    padding: 3px;
+
+}
 
 .card {
  margin : 30px auto;

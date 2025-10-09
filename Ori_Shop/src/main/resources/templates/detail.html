@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+<body id="wrap">
+
+<div th:replace="~{ nav.html :: navbar}"></div>
+
+<div id="item-detail-block" class="d-flex justify-content-center my-5">
+    <div id="item-detail-image-card">
+        <img class="item-detail-image" src="https://placehold.co/300">
+    </div>
+    <div id="item-detail-card" class="bg-white">
+        <div id="item-info-box">
+            <h4>금도금 바지</h4>
+            <p>⭐⭐⭐⭐⭐</p>
+            <p class="ms-1">32,000원</p>
+        </div>
+        <hr>
+        <div id="announce-box">
+            <p>적립금</p>
+            <p>배송방법 택배</p>
+            <p>배송비 2,500원 (30,000원 이상 무료)</p>
+        </div>
+        <hr>
+        <div id="selection-info-card" class="mb-2">
+            <div>사이즈 : M</div>
+            <div>색상 : 베이지</div>
+        </div>
+        <div>
+            <div id="total-cost-card" class="bg-secondary">
+                <p class="mt-2">금도금 바지</p>
+                <p>수량 : 1</p>
+                <p>합계 : 32,000원</p>
+            </div>
+        </div>
+        <hr>
+        <div id="total-fee-announcement-card">
+            <p class="mb-3">총 상품 금액 : 35,000원</p>
+            <div class="d-flex justify-content-end mt-4">
+                <button type="button" class="btn btn-info me-3">장바구니</button>
+                <button type="button" class="btn btn-success me-2">바로구매</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="bg-warning">
+    <button>상세정보</button>
+    <button>리뷰</button>
+    <button>상품문의</button>
+    <button>추천상품</button>
+</div>
+<div class="bg-success">
+    상세정보 블럭
+</div>
+<div class="bg-danger">
+    리뷰 블럭
+</div>
+<div class="bg-info">
+    상품문의 블럭
+</div>
+<div class="bg-warning">
+    추천상품 블럭
+</div>
+
+
+
+<div th:replace="~{ footer.html :: footer}"></div>
+
+
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

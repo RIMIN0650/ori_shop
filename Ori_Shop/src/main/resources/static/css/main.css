@@ -1,3 +1,10 @@
+#wrap {
+    width:1800px;
+    height:3000px;
+    margin:0 auto;
+}
+
+
 .card {
  margin : 30px auto;
  display : flex;
@@ -44,4 +51,10 @@ input {
 .logo-img {
     height:100px;
     width:100px;
+}
+
+
+
+.footer {
+    background-color : #b6aa8a;
 }

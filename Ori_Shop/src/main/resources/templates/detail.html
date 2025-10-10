@@ -18,9 +18,9 @@
     </div>
     <div id="item-detail-card" class="bg-white">
         <div id="item-info-box">
-            <h4>금도금 바지</h4>
+            <h4 th:text="${item.itemName}">상품명</h4>
             <p>⭐⭐⭐⭐⭐</p>
-            <p class="ms-1">32,000원</p>
+            <p th:text="${item.price + '원'}" class="ms-1">상품 가격</p>
         </div>
         <hr>
         <div id="announce-box">

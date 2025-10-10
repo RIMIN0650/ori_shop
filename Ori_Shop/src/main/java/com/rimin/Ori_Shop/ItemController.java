@@ -18,7 +18,8 @@ public class ItemController {
 
     @GetMapping("/main/home")
     String itemList(Model model){
-        List<Item> itemList = itemRepository.findAll();
+
+        List<Item> itemList = itemService.findTop3Items();
 //        System.out.println(itemList);
         model.addAttribute("itemList", itemList);
 //        var a = new Item();

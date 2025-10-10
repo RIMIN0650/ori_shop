@@ -13,9 +13,4 @@ public class BasicController {
         return "hello";
     }
 
-    @GetMapping("/main")
-    String main() {
-        return "/index.html";
-    }
-
 }

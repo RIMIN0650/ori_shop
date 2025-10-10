@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+<body id="wrap">
+
+<div th:replace="~{ nav.html :: navbar}"></div>
+
+<div id="main-block">
+
+    <p class="fs-1 fw-bold">BEST</p>
+
+    <div class="best-items-block d-flex">
+        <div class="best-item-card">
+            <img class="best-item-image" src="https://cdn.pixabay.com/photo/2025/05/28/17/14/t-shirt-9627865_960_720.jpg" alt="https://placehold.co/300">
+            <div class="best-item-detail">
+                <p class="fw-bold">데이 캐주얼 룩</p>
+                <p>35,000원</p>
+            </div>
+        </div>
+        <div class="best-item-card">
+            <img class="best-item-image" src="https://cdn.pixabay.com/photo/2015/05/31/15/01/shoes-792074_640.jpg" alt="https://placehold.co/300">
+            <div class="best-item-detail">
+                <p class="fw-bold">스니커즈</p>
+                <p>28,000원</p>
+            </div>
+        </div><div class="best-item-card">
+        <img class="best-item-image" src="https://cdn.pixabay.com/photo/2014/12/11/10/11/jeans-564061_640.jpg" alt="https://placehold.co/300">
+        <div class="best-item-detail">
+            <p class="fw-bold">청바지</p>
+            <p>12,000원</p>
+        </div>
+    </div>
+    </div>
+
+    <p class="fs-1 fw-bold">NEW IN</p>
+
+    <div class="new-in-items-block d-flex">
+        <div class="new-item-card">
+            <img class="new-item-image" src="https://cdn.pixabay.com/photo/2022/11/04/11/04/portrait-7569573_640.jpg" alt="https://placehold.co/300">
+            <div class="new-item-detail">
+                <p class="fw-bold">신상1</p>
+                <p>47,000원</p>
+            </div>
+
+        </div>
+        <div class="new-item-card">
+            <img class="new-item-image" src="https://cdn.pixabay.com/photo/2022/10/09/12/08/athletes-7509000_640.jpg" alt="https://placehold.co/300">
+            <div class="new-item-detail">
+                <p class="fw-bold">신상2</p>
+                <p>7,000원</p>
+            </div>
+
+        </div>
+        <div class="new-item-card">
+            <img class="new-item-image" src="https://cdn.pixabay.com/photo/2022/11/27/08/10/boy-7619083_640.jpg" alt="https://placehold.co/300">
+            <div class="new-item-detail">
+                <p class="fw-bold">신상3</p>
+                <p>3,000원</p>
+            </div>
+        </div>
+        <div class="new-item-card">
+            <img class="new-item-image" src="https://cdn.pixabay.com/photo/2022/12/04/18/35/woman-7635195_640.jpg" alt="https://placehold.co/300">
+            <div class="new-item-detail">
+                <p class="fw-bold">신상4</p>
+                <p>9,000원</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card" th:each="item : ${itemList}">
+        <img src="https://placehold.co/300">
+        <div>
+            <h4 th:text="${item.itemName}">상품명</h4>
+            <a th:href="@{ '/item/detail/' + ${item.id} }">링크</a>
+            <p th:text="${item.price}">상품 가격</p>
+        </div>
+    </div>
+</div>
+<div th:replace="~{ footer.html :: footer}"></div>
+
+
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

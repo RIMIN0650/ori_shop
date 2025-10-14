@@ -1,4 +1,4 @@
-package com.rimin.Ori_Shop;
+package com.rimin.Ori_Shop.Item;
 
 import jakarta.persistence.*;
 import lombok.Getter;

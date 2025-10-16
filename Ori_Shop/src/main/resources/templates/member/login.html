@@ -16,6 +16,13 @@
 
 <h4>로그인 페이지</h4>
 
+<!--
+param : 현재 URL의 query string 담겨있어서 여기에 있는 데이터를 꺼내서 쓸 수 있음
+th:if : 이 변수에 무언가 들어있으면 이 안에 있는 내용 보여주세요
+ -->
+<div th:if="${param.error}">
+    <h4>아이디나 비밀번호가 틀렸습니다.</h4>
+</div>
 
 <form action="/login" method="POST">
     <input name="username">

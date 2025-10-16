@@ -40,6 +40,12 @@ public class SecurityConfig {
                 // url 입력 후 검사 여부 설정
                 authorize.requestMatchers("/**").permitAll()
         );
+        http.formLogin((formLogin) // 폼으로 로그인 하겠습니다.
+                        -> formLogin.loginPage("/login") // 로그인페이지 url 적기
+                        .defaultSuccessUrl("/main/home") // 로그인 성공시 이동할 URL
+//                        .failureUrl("/fail") // 로그인 실패시 이동할 URL
+                        // 작성하지 않으면 기본적으로 /login?error로 이동함
+        );
         return http.build();
     }
 }

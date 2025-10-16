@@ -1,4 +1,4 @@
-package com.rimin.Ori_Shop.Item;
+package com.rimin.Ori_Shop.item;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

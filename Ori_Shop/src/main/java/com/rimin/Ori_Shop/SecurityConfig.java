@@ -46,6 +46,9 @@ public class SecurityConfig {
 //                        .failureUrl("/fail") // 로그인 실패시 이동할 URL
                         // 작성하지 않으면 기본적으로 /login?error로 이동함
         );
+        http.logout(logout -> logout.logoutUrl("/logout")
+                .logoutSuccessUrl("/main/home")
+        );
         return http.build();
     }
 }

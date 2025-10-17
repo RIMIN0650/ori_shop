@@ -1,6 +1,8 @@
 package com.rimin.Ori_Shop.member;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -36,9 +38,25 @@ public class MemberController {
 
     @GetMapping("/login")
     public String login() {
-        var result = memberRepository.findByUsername("chris0540");
-        System.out.println(result.get().getDisplayName());
+//        var result = memberRepository.findByUsername("chris0540");
+//        System.out.println(result.get().getDisplayName());
         return "member/login.html";
+    }
+
+
+    @GetMapping("/user/my-page")
+    public String myPage(Authentication auth) {
+        System.out.println(auth);
+        System.out.println(auth.getName());
+        System.out.println(auth.isAuthenticated()); // 현재 로그인 여부 확인
+//        if(auth.isAuthenticated()) : 로그인되어있는 경우에만 마이페이지로 연결해주세요
+        System.out.println(auth.getAuthorities().contains(new SimpleGrantedAuthority("user")));
+        return "member/mypage.html";
+    }
+
+    @GetMapping("/logout")
+    public String logout() {
+        return "redirect:/main/home";
     }
 
 

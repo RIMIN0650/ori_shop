@@ -52,6 +52,14 @@
 
 </div>
 
+<form action="/comment" method="POST">
+    <input name="content">
+    <input name="parentId" th:value="${item.id}" style="display : none">
+    <button type="submit">작성</button>
+</form>
+<br>
+
+
 
 
 <div class="bg-warning">
@@ -65,6 +73,15 @@
 </div>
 <div class="bg-danger">
     리뷰 블럭
+    <div class="commentList">
+        <div th:each="comment : ${commentList}">
+            <div>
+                <p th:text="${comment.content} + ' - ' + ${comment.username}"></p>
+            </div>
+        </div>
+    </div>
+
+
 </div>
 <div class="bg-info">
     상품문의 블럭

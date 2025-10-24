@@ -51,6 +51,8 @@ public class MemberController {
         System.out.println(auth.isAuthenticated()); // 현재 로그인 여부 확인
 //        if(auth.isAuthenticated()) : 로그인되어있는 경우에만 마이페이지로 연결해주세요
         System.out.println(auth.getAuthorities().contains(new SimpleGrantedAuthority("user")));
+        CustomUser customUser = (CustomUser) auth.getPrincipal();
+        System.out.println(customUser.displayName);
         return "member/mypage.html";
     }
 

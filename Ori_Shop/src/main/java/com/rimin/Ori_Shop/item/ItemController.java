@@ -1,5 +1,7 @@
 package com.rimin.Ori_Shop.item;
 
+import com.rimin.Ori_Shop.comment.Comment;
+import com.rimin.Ori_Shop.comment.CommentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,7 @@ public class ItemController {
 
     private final ItemRepository itemRepository;
     private final ItemService itemService;
+    private final CommentRepository commentRepository;
 
     @GetMapping("/main/home")
     String itemList(Model model){
@@ -42,11 +45,15 @@ public class ItemController {
     @GetMapping("/item/detail/{itemId}")
     String itemDetail(@PathVariable Long itemId, Model model){
 
+        List<Comment> commentList =  commentRepository.findAllByItemId(itemId);
+
         try {
             Optional<Item> optionalItem = itemRepository.findById(itemId);
             if(optionalItem.isPresent()){
 //              System.out.println(optionalItem.get());
+                model.addAttribute("commentList", commentList);
                 model.addAttribute("item", optionalItem.get());
+                System.out.println(commentList);
             } else {
                 return "redirect:/main/home";
             }

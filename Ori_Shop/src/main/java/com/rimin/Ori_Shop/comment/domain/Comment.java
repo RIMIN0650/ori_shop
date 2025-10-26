@@ -1,4 +1,4 @@
-package com.rimin.Ori_Shop.item;
+package com.rimin.Ori_Shop.comment.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -9,13 +9,12 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Item {
-
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="item_name", nullable = false, unique = true)
-    private String itemName;
-    private Integer price;
-
+    private String username;
+    @Column(length = 1000)
+    private String content;
+    private Long itemId;
 }

@@ -1,6 +1,9 @@
 package com.rimin.Ori_Shop.sales;
 
-import com.rimin.Ori_Shop.member.CustomUser;
+import com.rimin.Ori_Shop.member.domain.CustomUser;
+import com.rimin.Ori_Shop.sales.domain.Sales;
+import com.rimin.Ori_Shop.sales.repository.SalesRepository;
+import com.rimin.Ori_Shop.sales.service.SalesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;

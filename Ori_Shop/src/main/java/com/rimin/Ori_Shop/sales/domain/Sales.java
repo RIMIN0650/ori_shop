@@ -1,4 +1,4 @@
-package com.rimin.Ori_Shop.sales;
+package com.rimin.Ori_Shop.sales.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -5,36 +5,73 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Order List Page</title>
     <link href="/css/main.css" rel="stylesheet">
 </head>
 <body id="wrap">
 
 <div th:replace="~{ nav.html :: navbar}"></div>
 
+<table class="table text-center">
+    <thead>
+        <th>번호</th>
+        <th>제품명</th>
+        <th>가격</th>
+        <th>수량</th>
+        <th>사용자ID</th>
+        <th>주문일자</th>
+        <th>상태</th>
+        <th>변경</th>
+    </thead>
+    <tbody th:each="order : ${orderList}">
+        <td th:text="${order.id}"></td>
+        <td th:text="${order.itemName}"></td>
+        <td th:text="${order.price}"></td>
+        <td th:text="${order.count}"></td>
+        <td th:text="${order.memberId}"></td>
+        <td th:text="${order.created}"></td>
+        <td>배송중</td>
+        <td>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button"
+                        id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    상태 변경
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="#">주문 접수</a></li>
+                    <li><a class="dropdown-item" href="#">상품 포장 완료</a></li>
+                    <li><a class="dropdown-item" href="#">택배사 전달</a></li>
+                    <li><a class="dropdown-item" href="#">배송중</a></li>
+                    <li><a class="dropdown-item" href="#">구매확정</a></li>
+                </ul>
+            </div>
+        </td>
 
-<div th:each="order : ${orderList}">
-    <div class="d-flex">
-    <p th:text="${order.id}"></p>
-    <p th:text="${order.itemName}"></p>
-    <p th:text="${order.price}"></p>
-    <p th:text="${order.count}"></p>
-    <p th:text="${order.memberId}"></p>
-    <p th:text="${order.created}"></p>
-    </div>
+    </tbody>
+</table>
+<div class="d-flex justify-content-end">
+    <button class="btn bg-info">수정</button>
 </div>
-
-
-
-
 <div th:replace="~{ footer.html :: footer}"></div>
-
-
 
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
+
+<script>
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+        item.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            const selectedText = this.textContent;
+            const dropdown = this.closest('.dropdown');
+            const button = dropdown.querySelector('.dropdown-toggle');
+
+            button.textContent = selectedText;
+        });
+    });
+</script>
 
 </body>
 </html>

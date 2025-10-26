@@ -1,4 +1,4 @@
-package com.rimin.Ori_Shop.member;
+package com.rimin.Ori_Shop.member.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;

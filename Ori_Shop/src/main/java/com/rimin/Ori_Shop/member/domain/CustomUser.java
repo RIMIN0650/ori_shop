@@ -1,4 +1,4 @@
-package com.rimin.Ori_Shop.member;
+package com.rimin.Ori_Shop.member.domain;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;

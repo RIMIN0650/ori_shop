@@ -1,7 +1,10 @@
 package com.rimin.Ori_Shop.item;
 
-import com.rimin.Ori_Shop.comment.Comment;
-import com.rimin.Ori_Shop.comment.CommentRepository;
+import com.rimin.Ori_Shop.comment.domain.Comment;
+import com.rimin.Ori_Shop.comment.repository.CommentRepository;
+import com.rimin.Ori_Shop.item.domain.Item;
+import com.rimin.Ori_Shop.item.repository.ItemRepository;
+import com.rimin.Ori_Shop.item.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

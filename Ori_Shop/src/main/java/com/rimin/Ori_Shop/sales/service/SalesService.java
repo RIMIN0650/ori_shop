@@ -1,5 +1,7 @@
-package com.rimin.Ori_Shop.sales;
+package com.rimin.Ori_Shop.sales.service;
 
+import com.rimin.Ori_Shop.sales.domain.Sales;
+import com.rimin.Ori_Shop.sales.repository.SalesRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

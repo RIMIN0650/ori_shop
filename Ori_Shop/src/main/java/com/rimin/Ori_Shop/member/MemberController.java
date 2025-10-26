@@ -1,9 +1,11 @@
 package com.rimin.Ori_Shop.member;
 
+import com.rimin.Ori_Shop.member.domain.CustomUser;
+import com.rimin.Ori_Shop.member.domain.Member;
+import com.rimin.Ori_Shop.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

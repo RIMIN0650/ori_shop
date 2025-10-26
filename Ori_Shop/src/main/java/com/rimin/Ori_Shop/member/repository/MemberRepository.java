@@ -1,5 +1,6 @@
-package com.rimin.Ori_Shop.member;
+package com.rimin.Ori_Shop.member.repository;
 
+import com.rimin.Ori_Shop.member.domain.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

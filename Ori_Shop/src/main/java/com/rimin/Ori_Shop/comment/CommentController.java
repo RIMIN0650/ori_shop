@@ -1,6 +1,8 @@
 package com.rimin.Ori_Shop.comment;
 
-import com.rimin.Ori_Shop.member.CustomUser;
+import com.rimin.Ori_Shop.comment.domain.Comment;
+import com.rimin.Ori_Shop.comment.repository.CommentRepository;
+import com.rimin.Ori_Shop.member.domain.CustomUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;

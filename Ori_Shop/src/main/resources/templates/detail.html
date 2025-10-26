@@ -52,6 +52,18 @@
 
 </div>
 
+<form action="/order" method="post">
+    <input name="itemName" th:value="${item.itemName}">
+    <input name="price" th:value="${item.price}">
+    <input name="count" placeholder="count">
+    <button style="text-align : left">주문하기</button>
+</form>
+
+
+
+
+
+
 <form action="/comment" method="POST">
     <input name="content">
     <input name="parentId" th:value="${item.id}" style="display : none">

@@ -45,6 +45,7 @@ public class MyUserDetailsService implements UserDetailsService {
     auth.add(new SimpleGrantedAuthority("user"));
     var customUser = new CustomUser(member.getUsername(), member.getPassword(), auth);
     customUser.displayName = member.getDisplayName();
+    customUser.id = member.getId();
     return customUser;
 
     }

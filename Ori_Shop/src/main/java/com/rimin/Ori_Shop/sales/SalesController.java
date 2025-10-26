@@ -4,6 +4,7 @@ import com.rimin.Ori_Shop.member.CustomUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +16,7 @@ import java.util.List;
 public class SalesController {
 
     private final SalesRepository salesRepository;
+    private final SalesService salesService;
 
     @PostMapping("/order")
     String postorder(@RequestParam String itemName,
@@ -32,8 +34,14 @@ public class SalesController {
         return "redirect:/main/home";
     }
 
-    
-    
+
+    // 모든 주문내역 보여주는 페이지
+    @GetMapping("/order/all")
+    String getAllOrder(Model model){
+        List<Sales> salesList = salesService.getAllOrderList();
+        model.addAttribute("orderList", salesList);
+        return "orderList.html";
+    }
 
 
 }

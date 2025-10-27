@@ -3,13 +3,18 @@ package com.rimin.Ori_Shop.member;
 import com.rimin.Ori_Shop.member.domain.CustomUser;
 import com.rimin.Ori_Shop.member.domain.Member;
 import com.rimin.Ori_Shop.member.repository.MemberRepository;
+import com.rimin.Ori_Shop.sales.domain.Sales;
+import com.rimin.Ori_Shop.sales.service.SalesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -17,6 +22,7 @@ public class MemberController {
 
     private final MemberRepository memberRepository;
     private final PasswordEncoder passwordEncoder;
+    private final SalesService salesService;
 
 
     @GetMapping("/user/join")
@@ -61,6 +67,16 @@ public class MemberController {
     @GetMapping("/logout")
     public String logout() {
         return "redirect:/main/home";
+    }
+
+    
+    // 로그인 한 사용자의 주문목록 보여주기
+    @GetMapping("/user/myOrder")
+    String getUserOrder(Model model, Authentication auth){
+        CustomUser customUser = (CustomUser) auth.getPrincipal();
+        List<Sales> salesList = salesService.findSalesByUserName(customUser.id);
+        System.out.println(salesList.get(8));
+        return "member/myOrder.html";
     }
 
 

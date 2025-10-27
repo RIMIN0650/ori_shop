@@ -20,5 +20,10 @@ public class SalesService {
         return salesList;
     }
 
+    public List<Sales> findSalesByUserName(Long memberId){
+        List<Sales> userSalesList = salesRepository.findAllByMemberId(memberId);
+        return userSalesList;
+    }
+
 
 }

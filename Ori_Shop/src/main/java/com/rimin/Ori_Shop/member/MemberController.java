@@ -71,11 +71,11 @@ public class MemberController {
 
     
     // 로그인 한 사용자의 주문목록 보여주기
-    @GetMapping("/user/myOrder")
+    @GetMapping("/user/my-order")
     String getUserOrder(Model model, Authentication auth){
         CustomUser customUser = (CustomUser) auth.getPrincipal();
         List<Sales> salesList = salesService.findSalesByUserName(customUser.id);
-        System.out.println(salesList.get(8));
+        model.addAttribute("salesList", salesList);
         return "member/myOrder.html";
     }
 

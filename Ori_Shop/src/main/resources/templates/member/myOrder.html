@@ -14,11 +14,23 @@
 
 <div th:replace="~{ nav.html :: navbar}"></div>
 
-
-
+<table class="table text-center">
+  <thead>
+    <th>제품명</th>
+    <th>가격</th>
+    <th>수량</th>
+  </thead>
+  <tbody th:each="sales : ${salesList}">
+    <td th:text="${sales.itemName}"></td>
+    <td th:text="${sales.price}"></td>
+    <td th:text="${sales.count}"></td>
+  </tbody>
+</table>
 
 <div th:replace="~{ footer.html :: footer}"></div>
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
 </body>
 </html>

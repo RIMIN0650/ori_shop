@@ -14,6 +14,9 @@
 
 <div th:replace="~{ nav.html :: navbar}"></div>
 
+<div sec:authentication="principal.username"></div>
+님의 주문목록
+
 <table class="table text-center">
   <thead>
     <th>제품명</th>

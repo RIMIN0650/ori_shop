@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -35,17 +36,27 @@ public class SecurityConfig {
         // FilterChain : 모든 유저의 요청과 서버의 응답 사이에
         // 자동으로 실행해주고 싶은 코드 담는 곳
         http.csrf((csrf)-> csrf.disable());
+
+
+        // 로그인 했을 때 세션 데이터 생성하지 말아주세요
+        http.sessionManagement((session) -> session
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        );
+
+
+
+
         http.authorizeHttpRequests((authorize) ->
                 // 특정 페이지 로그인 검사 여부 결정 가능
                 // url 입력 후 검사 여부 설정
                 authorize.requestMatchers("/**").permitAll()
         );
-        http.formLogin((formLogin) // 폼으로 로그인 하겠습니다.
-                        -> formLogin.loginPage("/login") // 로그인페이지 url 적기
-                        .defaultSuccessUrl("/main/home") // 로그인 성공시 이동할 URL
-//                        .failureUrl("/fail") // 로그인 실패시 이동할 URL
-                        // 작성하지 않으면 기본적으로 /login?error로 이동함
-        );
+//        http.formLogin((formLogin) // 폼으로 로그인 하겠습니다.
+//                        -> formLogin.loginPage("/login") // 로그인페이지 url 적기
+//                        .defaultSuccessUrl("/main/home") // 로그인 성공시 이동할 URL
+////                        .failureUrl("/fail") // 로그인 실패시 이동할 URL
+//                        // 작성하지 않으면 기본적으로 /login?error로 이동함
+//        );
         http.logout(logout -> logout.logoutUrl("/logout")
                 .logoutSuccessUrl("/main/home")
         );

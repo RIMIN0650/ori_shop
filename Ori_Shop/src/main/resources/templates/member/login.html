@@ -31,9 +31,9 @@ th:if : 이 변수에 무언가 들어있으면 이 안에 있는 내용 보여�
 </form>
 
 
-
+<h4>JWT 로그인</h4>
 <form>
-    <input name="username" id="usetname">
+    <input name="username" id="username">
     <input name="password" type="password" id="password">
 </form>
 <button onclick="loginJWT()">전송</button>
@@ -49,6 +49,17 @@ th:if : 이 변수에 무언가 들어있으면 이 안에 있는 내용 보여�
         })
       }).then(r => r.text()).then((r)=>{ console.log(r) })
     }
+</script>
+
+<button onclick="getMyPage()">마이페이지 주세요</button>
+<script>
+    function getMyPage(){
+        fetch('/my-page/jwt')
+        .then((r)=> r.text())
+        .then((r)=> { console.log(r) })
+
+    }
+
 </script>
 
 

@@ -5,6 +5,8 @@ import com.rimin.Ori_Shop.member.domain.Member;
 import com.rimin.Ori_Shop.member.repository.MemberRepository;
 import com.rimin.Ori_Shop.sales.domain.Sales;
 import com.rimin.Ori_Shop.sales.service.SalesService;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -90,25 +92,51 @@ public class MemberController {
 
     @PostMapping("/login/jwt")
     @ResponseBody
-    public String getUser(@RequestBody Map<String, String> data, ){
+    public String loginJWT(@RequestBody Map<String, String> data
+                            , HttpServletResponse response){
         // 로그인시켜주세요
         // jwt 입장권도 보내주세요
-
         var authToken = new UsernamePasswordAuthenticationToken(data.get("username"), data.get("password"));
         // 아이디 비밀번호를 DB 내용과 비교해서 로그인해줌
         var auth = authenticationManagerBuilder.getObject().authenticate(authToken);
         // 로그인이 위와 같이 수동으로 하는 경우 auth 변수에 유저정보가 반영이 안됨.
         // 직접 넣어주어야 함
-
-
-
         SecurityContextHolder.getContext().setAuthentication(auth);
         // auth 변수에 마음대로 유저정보 추가 기능
 
         //SecurityContextHolder.getContext().getAuthentication()
 
-        return "";
+        var jwt = JwtUtil.createToken(SecurityContextHolder.getContext().getAuthentication());
+        System.out.println(jwt );
+
+        var cookie = new Cookie("jwt", jwt);
+        // 쿠키의 유효기간 설정
+        cookie.setMaxAge(10);
+        // 쿠키를 자바스크립트로 조작하기 어렵도록
+        cookie.setHttpOnly(true);
+        // 쿠키가 전송될 URL
+        cookie.setPath("/");
+        response.addCookie(cookie);
+
+        return jwt;
     }
+
+    @GetMapping("/my-page/jwt")
+    @ResponseBody
+    String mypageJWT(){
+
+        // 유저가 제출한 jwt 확인하는 코드
+
+        // 필터에 적어놓은 코드는 요청 들어올 때 항상 실행됨
+
+
+
+        return "마이페이지 데이터";
+    }
+
+
+
+
 
 
 }

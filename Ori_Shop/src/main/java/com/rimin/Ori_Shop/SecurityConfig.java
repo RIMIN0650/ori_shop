@@ -37,7 +37,7 @@ public class SecurityConfig {
         // 자동으로 실행해주고 싶은 코드 담는 곳
         http.csrf((csrf)-> csrf.disable());
 
-
+        // jwt 사용하면 세션 데이터 생성이 필요 없음
         // 로그인 했을 때 세션 데이터 생성하지 말아주세요
         http.sessionManagement((session) -> session
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -51,6 +51,7 @@ public class SecurityConfig {
                 // url 입력 후 검사 여부 설정
                 authorize.requestMatchers("/**").permitAll()
         );
+        // 폼 전송이 아닌 ajax + 수동 로그인 할 것이기 때문에 주석처리
 //        http.formLogin((formLogin) // 폼으로 로그인 하겠습니다.
 //                        -> formLogin.loginPage("/login") // 로그인페이지 url 적기
 //                        .defaultSuccessUrl("/main/home") // 로그인 성공시 이동할 URL

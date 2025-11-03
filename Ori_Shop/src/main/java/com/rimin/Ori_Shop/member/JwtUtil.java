@@ -23,7 +23,12 @@ public class JwtUtil {
     // JWT 생성
     public static String createToken(Authentication auth) {
 
+        // auth 변수는 타입캐스팅 하여 사용해야 함
         var user = (CustomUser) auth.getPrincipal();
+
+        // user.getAuthorities() 하는 경우 리스트 자료나 collection 자료들은
+        // .claim("authorities" 안에 집어넣을 수 없고 문자만 집어넣을 수 있음
+        // 리스트 안의 자료를 꺼내서 문자에 담기 위함
         var authorities = auth.getAuthorities().stream().map(a -> a.getAuthority())
                 .collect(Collectors.joining(","));
 

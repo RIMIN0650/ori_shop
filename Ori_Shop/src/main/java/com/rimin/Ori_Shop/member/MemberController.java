@@ -6,6 +6,7 @@ import com.rimin.Ori_Shop.member.repository.MemberRepository;
 import com.rimin.Ori_Shop.sales.domain.Sales;
 import com.rimin.Ori_Shop.sales.service.SalesService;
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -105,10 +106,11 @@ public class MemberController {
         // auth 변수에 마음대로 유저정보 추가 기능
 
         //SecurityContextHolder.getContext().getAuthentication()
-
+        // 최신내용이 담긴 auth 변수를 사용하기 위함
         var jwt = JwtUtil.createToken(SecurityContextHolder.getContext().getAuthentication());
-        System.out.println(jwt );
+        System.out.println(jwt);
 
+        // jwt를 쿠키에 저장하기
         var cookie = new Cookie("jwt", jwt);
         // 쿠키의 유효기간 설정
         cookie.setMaxAge(10);
@@ -123,12 +125,15 @@ public class MemberController {
 
     @GetMapping("/my-page/jwt")
     @ResponseBody
-    String mypageJWT(){
+    String mypageJWT(Authentication auth){
 
         // 유저가 제출한 jwt 확인하는 코드
-
         // 필터에 적어놓은 코드는 요청 들어올 때 항상 실행됨
 
+        var user = (CustomUser) auth.getPrincipal();
+        System.out.println(user);
+        System.out.println(user.displayName);
+        System.out.println(user.getAuthorities());
 
 
         return "마이페이지 데이터";
